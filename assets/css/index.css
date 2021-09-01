@@ -1,0 +1,7 @@
+@import "./base.css";
+._page_wrapper h1{font-weight: bolder;font-size: 3.3em;}
+.image_wrapper{width: 98%;height:auto;}
+.image_wrapper img {width: 90%;height: 60vh;display: block;margin: 20px auto;}
+.footer {position: absolute;bottom: 50px;background-color: inherit;margin-left: 4px;}
+.download_relm {display: flex;align-items: center;justify-content: flex-start;}
+.download_relm p {margin: 8px 10px;}

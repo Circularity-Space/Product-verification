@@ -1,0 +1,12 @@
+@import "./base.css";
+.label{text-align: center;}
+._page_wrapper{overflow-y: scroll;}
+._packages{width: 90%;background-color: #1b1035;height: 200px;margin: auto;border-radius: 20px;margin-top: 20px;padding: 6px;z-index: 10;}
+._packages_header {display: flex;justify-content: space-between;padding: 20px 10px;}
+._packages_header ._cost{}
+._btn_payG{position: relative;bottom:-30px;left: 75px;border-radius: 6px;background-color: #929292;text-align: center;width: 150px;padding: 10px;}
+._pack_content {margin-top: 30px;text-align: center;}
+.pack1{background-color: #1b1035}
+.pack2{background-color: #f96500}
+.pack3{background-color: #ceff00;color: #000;}
+._package_wrapper{margin-bottom:100px;}

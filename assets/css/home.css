@@ -1,0 +1,28 @@
+@import "./base.css";
+._top_nav{display: flex;justify-content: space-between;padding: 2px 10px;}
+._top_nav i{font-size: 40px;padding: 0px 10px;}
+._content_wrapper {display: flex;flex-direction: column;background-color: #929292;margin-top: 30px;width: 100%;overflow-x: auto;}
+._last_child {margin-bottom: 100px;}
+
+._content_wrapper h1 {margin-top: 10px;padding: 5px;}
+._content_wrapper p {margin-top: 5px;padding: 5px;color: #000;font-size: 25px;}
+._one_container {}
+	.deals_hscroll {
+					border: 1px solid #379ab14f;
+					flex-direction: row;
+	    position: relative;
+					border-radius: 5px;
+	    flex-wrap: nowrap;
+					margin: 10px auto;
+					padding: 5px 40px;
+	    overflow-x: auto;
+	    display: flex;
+	    width: 99%;
+	}
+	.deals_hscroll .electro-item {
+	    display: inline-block;
+	    margin: 10px;
+	    flex: auto;
+	}
+.deals_hscroll img {width: 300px;
+height: 150px;}
