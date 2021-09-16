@@ -1,7 +1,7 @@
 @import "./base.css";
 ._top_nav{display: flex;justify-content: space-between;padding: 2px 10px;}
 ._top_nav i{font-size: 40px;padding: 0px 10px;}
-._content_wrapper {display: flex;flex-direction: column;background-color: #929292;margin-top: 30px;width: 100%;overflow-x: auto;}
+._content_wrapper {display: flex;flex-direction: column;background-color: #929292;margin-top: 30px;width: 100%;overflow:hidden;}
 ._last_child {margin-bottom: 100px;}
 
 ._content_wrapper h1 {margin-top: 10px;padding: 5px;}

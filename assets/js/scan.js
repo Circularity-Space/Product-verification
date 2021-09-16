@@ -1,5 +1,6 @@
 const supported = 'mediaDevices' in navigator
 let video = document.querySelector("video")
+let snap = document.querySelector(".torch_trigger")
 let canvas = document.getElementById("canvas")
 
 let context = canvas.getContext('2d')
@@ -8,6 +9,10 @@ if (supported) {
 		navigator.mediaDevices.getUserMedia({'video':true}).then((stream)=>{
 				console.log(stream);
 				video.srcObject = stream
-				// context.drawImage(video, 0, 0, canvas.width, canvas.height);
 		})
 }
+
+snap.addEventListener('click',(e)=>{
+		console.log("Hello");
+		context.drawImage(video, 0, 0, 640, 480);
+})
