@@ -5,3 +5,4 @@
 ._alternatives {}
 ._alternatives p{text-align: center;margin: 20px auto;}
 ._alternatives p a{color: var(--logo);}
+._input_wrapper button {width: 120px;padding: 10px;margin: auto;border-radius: 4px;outline: none;border: none;}
