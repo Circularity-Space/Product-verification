@@ -1,41 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 	<head>
-		<meta name="viewport" content="initial-scale=1.0,user-scalable=no,width=device-width">
 		<meta charset="utf-8">
 		<title></title>
-		<link async defer rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	</head>
 	<body>
-			<div class="_page_wrapper">
-				<div class="_mid_strip"></div>
-				<div class="label">Scan Product</div>
-
-				<div class="scan_product">
-				<div id="reader"></div>
-				</div>
-				<div class="torch_trigger"><img src="./assets/images/torch.png" alt=""></div>
-				<div class="bottom_nav">
-						<img src="./assets/images/home.png" alt="">
-						<img src="./assets/images/scan.png" alt="">
-						<img src="./assets/images/virdismartplain.png" alt="">
-				</div>
-				<div class="_decor"></div>
-			</div>
+		<div id="reader"></div>
 	</body>
-	<link async defer rel="stylesheet" href="./assets/css/home.css">
-	<link async defer rel="stylesheet" href="./assets/css/scan.css">
-	<!-- <script async defer src="./assets/js/scan.js" charset="utf-8"></script> -->
 	<script src="./minified/html5-qrcode.min.js"></script>
 	<script type="text/javascript">
 	// This method will trigger user permissions
 Html5Qrcode.getCameras().then(devices => {
-	/*
+	/**
 		* devices would be an array of objects of type:
 		* { id: "id", label: "label" }
 		*/
 	if (devices && devices.length) {
-			var cameraId = (devices[1]) ? devices[1].id : devices[0].id;
+			var cameraId = devices[1].id;
 			console.log( devices[0]);
 			alert( devices[0].label);
 			alert(cameraId);
