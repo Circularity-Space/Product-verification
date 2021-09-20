@@ -1,0 +1,25 @@
+{
+  "name": "product-verification",
+  "version": "1.0.0",
+  "description": "Thibitisha is an application for verifying good authenticity",
+  "main": "firebase.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Virdismart-ke/Product-verification.git"
+  },
+  "keywords": [],
+  "author": "Virdismart",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Virdismart-ke/Product-verification/issues"
+  },
+  "homepage": "https://github.com/Virdismart-ke/Product-verification#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.3.4",
+    "postcss-cli": "^8.3.1",
+    "tailwindcss": "^2.2.15"
+  }
+}
