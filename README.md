@@ -5,3 +5,6 @@ The following technologies have been used
     `Hypertext markup language`
     `Cascade style sheet`
     `Javascript`
+2. Backend - `Firebase`
+
+## `Break down of file organization`
