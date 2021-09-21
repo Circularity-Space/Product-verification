@@ -20,5 +20,5 @@ For facebook authentication, check this event listener at the bottom of the file
 
 2. `_facebook_auth.addEventListener('click',(e)=>{
 		console.log("_facebook_auth");
-	})`
+	})` <br/><br/>
 ![](https://media.giphy.com/media/oaBBXmpZa4n6g/giphy.gif)
