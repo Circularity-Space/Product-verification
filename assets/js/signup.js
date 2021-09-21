@@ -119,8 +119,8 @@ _images_wrapper.forEach((item, i) => {
 });
 
 _google_auth.addEventListener('click',(e)=>{
-		console.log("_google_auth");
+		console.log("authenticating via google");
 })
 _facebook_auth.addEventListener('click',(e)=>{
-		console.log("_facebook_auth");
+		console.log("authenticating via facebook");
 })
