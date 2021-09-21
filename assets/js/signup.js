@@ -9,7 +9,7 @@ let _curren_view = 1
 let _target = ""
 
 let _collector_more_details = document.querySelector("._collector_more_details")
-let _info_label = document.querySelector("._info_label")
+let mobi = document.querySelector(".mobi")
 let _google_auth = document.querySelector("._google_auth")
 let _facebook_auth = document.querySelector("._facebook_auth")
 let _all_next = document.querySelectorAll("._next")
@@ -33,7 +33,7 @@ _boolean[1].addEventListener("click",(e)=>{
 				e.target.parentNode.setAttribute("gender","female")
 })
 
-_info_label.addEventListener("click",(e)=>{
+mobi.addEventListener("click",(e)=>{
 		_collector_more_details.classList.add("_show")
 	_all_children[0].classList.add('_show')
 	})

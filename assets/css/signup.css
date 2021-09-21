@@ -3,7 +3,7 @@
 ._auth_logs .signup_btn {width: 86%;padding: 10px 2px;background-color: var(--logo);margin: 6px auto;border-radius: 10px;text-align: center;color: #000;display: flex;align-items: center;justify-content: flex-start;}
 .signup_btn p {text-align: center;flex: 8;}
 .signup_btn i{flex: 1;width: 40px;height: 40px;border-radius: 50%;font-size: 30px;padding-top: 5px;margin-right: 10px;padding: 5px;}
-._auth_logs ._info_label {text-align: center;color: #fff;font-size: 30px;margin: 10px;}
+._auth_logs ._info_label {text-align: center;color: #fff;font-size: 30px;margin: 20px 10px;}
 ._collector_more_details{z-index: 12;position: fixed;width: 100vw;background-color: #000;min-height: 100vh;top: 0px;left: 0px;display: flex;flex-direction: row;overflow-x: scroll;display: none;}
 
 ._collector_more_details ._one_page{width: 100vw;height: 100vh;background-color: #000;color: #fff;}
