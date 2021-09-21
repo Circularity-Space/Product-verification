@@ -10,6 +10,7 @@ let _target = ""
 
 let _collector_more_details = document.querySelector("._collector_more_details")
 let mobi = document.querySelector(".mobi")
+let login = document.querySelector(".login")
 let _google_auth = document.querySelector("._google_auth")
 let _facebook_auth = document.querySelector("._facebook_auth")
 let _all_next = document.querySelectorAll("._next")
@@ -124,3 +125,4 @@ _google_auth.addEventListener('click',(e)=>{
 _facebook_auth.addEventListener('click',(e)=>{
 		console.log("authenticating via facebook");
 })
+login.addEventListener('click',(e)=>{window.location = 'login.html'})
