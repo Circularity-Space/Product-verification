@@ -1,8 +1,9 @@
 @import "./base.css";
-._u_details{margin-top: 60px;}
+._u_details{margin-top: 30px;}
 ._input_wrapper{display: flex;flex-direction: column;margin: 20px 10px;}
 ._input_wrapper input {height: 40px;background-color: inherit;border: none;border-bottom: 1px solid #fff;outline: none;color: #fff;}
 ._alternatives {}
 ._alternatives p{text-align: center;margin: 20px auto;}
 ._alternatives p a{color: var(--logo);}
 ._input_wrapper button {width: 120px;padding: 10px;margin: auto;border-radius: 4px;outline: none;border: none;}
+._details_error {visibility:visible;color: red;text-align: center;}

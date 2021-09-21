@@ -10,6 +10,8 @@ let _target = ""
 
 let _collector_more_details = document.querySelector("._collector_more_details")
 let _info_label = document.querySelector("._info_label")
+let _google_auth = document.querySelector("._google_auth")
+let _facebook_auth = document.querySelector("._facebook_auth")
 let _all_next = document.querySelectorAll("._next")
 let _boolean = document.querySelectorAll("._boolean p")
 let _images_wrapper = document.querySelectorAll("._images_wrapper img")
@@ -115,3 +117,10 @@ _images_wrapper.forEach((item, i) => {
 				e.target.parentNode.parentNode.setAttribute("diet",e.target.getAttribute("diet"))
 			})
 });
+
+_google_auth.addEventListener('click',(e)=>{
+		console.log("_google_auth");
+})
+_facebook_auth.addEventListener('click',(e)=>{
+		console.log("_facebook_auth");
+})
