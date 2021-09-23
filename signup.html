@@ -17,11 +17,22 @@
 					<div class="signup_btn mobi"><i class="fa fa-mobile"></i><p>Continue with phone  number</p></div>
 					<div class="signup_btn _google_auth"><i class="fa fa-google"></i> <p>Continue with google</p></div>
 					<div class="signup_btn _facebook_auth"><i class="fa fa-facebook"></i> <p>Continue with facebook</p></div>
-						<div class="_info_label login">Log in</div>
+						<div class="_info_label login"><p>sign in</p></div>
 				</div>
 				<div class="_decor"></div>
 			</div>
 			<div class="_collector_more_details">
+    <div class="_one_page _hide">
+      <div class="form_details">
+       <h2>Enter your First Name </h2>
+       <input type="text" name="fname" placeholder="First Name">
+      </div>
+      <div class="form_details">
+       <h2>Enter your Last Name </h2>
+       <input type="text" name="lname" placeholder="Last Name">
+      </div>
+      <div class="_next">&gt;</div>
+    </div>
 				<div class="_one_page _gender _hide">
 							<h1>What's your gender? </h1>
 							<div class="_boolean">
@@ -31,7 +42,25 @@
 							<div class="_next">&gt;</div>
 				</div>
 
-				<div class="_one_page _preference _hide">
+				<div class="_one_page _age _hide">
+							<h1>What's your age? </h1>
+							<div class="_age">
+								<input type="number" name="age">
+							</div>
+							<div class="_next">&gt;</div>
+				</div>
+    <div class="_one_page _hide">
+      <div class="form_details">
+       <h2>Set your password </h2>
+       <input type="password" name="password" placeholder="password">
+      </div>
+      <div class="form_details">
+       <h2>verify your password </h2>
+       <input type="password" name="password" placeholder="password">
+      </div>
+      <div class="_next">&gt;</div>
+    </div>
+    <div class="_preference _hide">
 							<h1>Choose some of your prefferences </h1>
 							<div class="_pref">
 								<input type="text" name="_prefference">
@@ -50,15 +79,9 @@
 								</div>
 							</div>
 							<div class="_next">&gt;</div>
+       <div class="fetch_btn"><p>&plus;</p></div>
 				</div>
 
-				<div class="_one_page _age _hide">
-							<h1>What's your age? </h1>
-							<div class="_age">
-								<input type="number" name="age">
-							</div>
-							<div class="_next">&gt;</div>
-				</div>
 			</div>
 	</body>
 	<link async defer rel="stylesheet" href="./assets/css/signup.css">
