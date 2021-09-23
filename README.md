@@ -28,3 +28,5 @@ For facebook authentication, check this event listener at the bottom of the file
 <!-- ![](https://media.giphy.com/media/11sBLVxNs7v6WA/giphy.gif) -->
 
 <!-- ![](https://media.giphy.com/media/rjkJD1v80CjYs/giphy.gif) -->
+<br/>
+## For the signup you can check the session storage for 
