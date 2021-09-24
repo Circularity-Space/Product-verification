@@ -22,5 +22,6 @@ h2 {margin: 4px;}
 ._info {margin: 20px auto;text-align: center;}
 ._next p{width: 80px;height: 20px;background-color:  #5e5e5e;display: block;margin: 20px auto;padding: 10px;text-align: center;border-radius: 15px;}
 
-._alt_activity {text-align: center;}
-._alt_activity p {margin: 20px auto;}
+._alt_activity { text-align: center; }
+._alt_activity p { margin: 20px auto; }
+._send_sms { width: 90px;font-size: 30px;margin: 10px auto;padding: 8px;margin-top: 30px;background-color: #00000000;border-radius: 10px;text-align: center;border: 1px solid #fff; }

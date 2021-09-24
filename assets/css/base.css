@@ -1,7 +1,7 @@
 @import "./cvars.css";
 :root {--background_color:#000;}
 *{padding: 0px;margin: 0px;}
-._page_wrapper{background-color: var(--background_color);color: #fff;min-height: 95.3vh;padding-top: 30px;overflow-y: auto;}
+._page_wrapper{background-color: var(--background_color);color: #fff;min-height: 96.8vh;padding-top: 30px;overflow-y: auto;}
 ._decor{width: 100px;height: 100px;position: fixed;bottom: -60px;right: -60px;border: 6px solid var(--logo);border-radius: 50%;z-index: 3;pointer-events: none;}
 ._virdis_logo {margin-bottom: 5px;}
 	._virdis_logo img {width: 220px;height: 150px;display: block;margin: auto;padding-top: calc(100% - 450px);}
