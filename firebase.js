@@ -3,7 +3,9 @@ import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.2/firebase
 import {
   getAuth,
   createUserWithEmailAndPassword,
+  signInWithPopup,
   GoogleAuthProvider,
+  onAuthStateChanged,
   FacebookAuthProvider,
 } from 'https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js'
 import {
@@ -33,6 +35,10 @@ const db = getFirestore()
 
 const auth = getAuth()
 
+// initialize google auth provider
+
+const provider = new GoogleAuthProvider()
+
 // enable offline persistence
 // Subsequent queries will use persistence, if it was enabled successfully
 
@@ -47,6 +53,38 @@ enableIndexedDbPersistence(db).catch((err) => {
     // ...
   }
 })
+
+// function for tracking auth state through out the app
+function initApp() {
+  // Listening for auth state changes.
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      window.location = 'home.html'
+      // User is signed in.
+      var displayName = user.displayName
+      var email = user.email
+      var emailVerified = user.emailVerified
+      var photoURL = user.photoURL
+      var isAnonymous = user.isAnonymous
+      var uid = user.uid
+      var providerData = user.providerData
+
+      console.log(email)
+    } else {
+      // User is signed out.
+      window.location = 'signup.html'
+    }
+    // document.getElementById('quickstart-sign-in').disabled = false
+  })
+
+  /*  document
+    .getElementById('quickstart-sign-in')
+    .addEventListener('click', toggleSignIn, false) */
+}
+
+window.onload = function () {
+  initApp()
+}
 
 // 1. Create new users with email and password
 
@@ -110,4 +148,27 @@ async function registerUser() {
 }
 
 // 2. Authenticate user using Google Auth Provider
+_google_auth.addEventListener('click', (e) => {
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      const credential = GoogleAuthProvider.credentialFromResult(result)
+      const token = credential.accessToken
+      // The signed-in user info.
+      const user = result.user
+      console.log(user)
+      // ...
+    })
+    .catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code
+      const errorMessage = error.message
+      // The email of the user's account used.
+      const email = error.email
+      // The AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error)
+      // ...
+    })
+})
+
 // 3. Authenticate user using Facebook Auth Provider
