@@ -129,7 +129,26 @@ _google_auth.addEventListener('click', (e) => {
       // The signed-in user info.
       const user = result.user
       console.log(user)
+      console.log('latest commit')
       // ...
+    }).then(() => {
+      const user = {
+        username : user.username,
+        email: user.email,
+        firstName: '',
+        lastName: '',
+        phoneNumber: user.phoneNumber,
+        userId: user.uid,
+        createdAt: new Date().toISOString(),
+        profilePic: user.photoURL,
+        age: '',
+        gender: '',
+        preferences : [],
+
+      }
+      return db.doc(`/user/${user.username}`).set(user)
+    }).then(() => {
+      return user.accessToken
     })
     .catch((error) => {
       // Handle Errors here.
