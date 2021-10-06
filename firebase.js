@@ -181,6 +181,27 @@ _facebook_auth.addEventListener('click', (e) => {
       console.log(user)
 
       // ...
+
+      return user
+    })
+    .then((user) => {
+      const userInfo = {
+        username: user.displayName,
+        email: user.email,
+        firstName: null,
+        lastName: null,
+        phoneNumber: user.phoneNumber,
+        userId: user.uid,
+        createdAt: new Date().toISOString(),
+        profilePic: user.photoURL,
+        age: null,
+        gender: null,
+        preferences: [],
+      }
+      return setDoc(doc(db, 'Users', `${userInfo.username}`), userInfo)
+    })
+    .then(() => {
+      window.location.replace('home.html')
     })
     .catch((error) => {
       // Handle Errors here.
@@ -192,5 +213,6 @@ _facebook_auth.addEventListener('click', (e) => {
       const credential = FacebookAuthProvider.credentialFromError(error)
 
       // ...
+      console.log(error)
     })
 })
