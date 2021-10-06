@@ -11,6 +11,8 @@ import {
 import {
   getFirestore,
   enableIndexedDbPersistence,
+  doc,
+  setDoc,
 } from 'https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js'
 import { getAnalytics } from 'https://www.gstatic.com/firebasejs/9.0.2/firebase-analytics.js'
 
@@ -131,24 +133,26 @@ _google_auth.addEventListener('click', (e) => {
       console.log(user)
       console.log('latest commit')
       // ...
-    }).then(() => {
-      const user = {
-        username : user.username,
+      return user
+    })
+    .then((user) => {
+      const userInfo = {
+        username: user.displayName,
         email: user.email,
-        firstName: '',
-        lastName: '',
+        firstName: null,
+        lastName: null,
         phoneNumber: user.phoneNumber,
         userId: user.uid,
         createdAt: new Date().toISOString(),
         profilePic: user.photoURL,
-        age: '',
-        gender: '',
-        preferences : [],
-
+        age: null,
+        gender: null,
+        preferences: [],
       }
-      return db.doc(`/user/${user.username}`).set(user)
-    }).then(() => {
-      return user.accessToken
+      return setDoc(doc(db, 'Users', `${userInfo.username}`), userInfo)
+    })
+    .then(() => {
+      window.location.replace('home.html')
     })
     .catch((error) => {
       // Handle Errors here.
@@ -159,6 +163,7 @@ _google_auth.addEventListener('click', (e) => {
       // The AuthCredential type that was used.
       const credential = GoogleAuthProvider.credentialFromError(error)
       // ...
+      console.log(error)
     })
 })
 
@@ -189,5 +194,3 @@ _facebook_auth.addEventListener('click', (e) => {
       // ...
     })
 })
-
-//4. Authenticate user using Phone Auth Provider
