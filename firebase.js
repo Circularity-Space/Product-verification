@@ -189,3 +189,5 @@ _facebook_auth.addEventListener('click', (e) => {
       // ...
     })
 })
+
+//4. Authenticate user using Phone Auth Provider
