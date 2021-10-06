@@ -149,6 +149,7 @@ _google_auth.addEventListener('click', (e) => {
       return db.doc(`/user/${user.username}`).set(user)
     }).then(() => {
       return user.accessToken
+      console.log(user.accessToken)
     })
     .catch((error) => {
       // Handle Errors here.
