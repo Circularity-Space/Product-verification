@@ -1,6 +1,7 @@
 @import "./base.css";
 .label{text-align: center;display: block;margin: auto;border: 1px solid #ffffff78;width: 100px;padding: 10px;border-radius: 8px;}
-.scan_product{width: 260px;height: 260px;background-color: #fff;margin: 20px auto;border-radius: 10px;}
-video {width: 100%;height: 100%;}
+.scan_product{width: 100vw;height: 100vh;background-color: #fff;margin: 20px auto;border-radius: 10px;}
 .torch_trigger img {width: 50px;height: 50px;display: block;margin: auto;}
 .fa-bulb {color: #fff;background-color: #fff;}
+#reader { display: flex;align-items: center;justify-content: center;align-items: center;}
+video {width: 100%;height: 100vh;}
