@@ -1,8 +1,8 @@
 const staticCacheName = 'site-static-v4';
 const dynamicCacheName = 'site-dynamic-v4';
 const assets = [
-  '/',
-  '/index.html'
+  'https://virdismart-ke.github.io/',
+  'https://virdismart-ke.github.io/signup.html'
 ];
 
 // cache size limit function
