@@ -5,6 +5,7 @@
 		<meta charset="utf-8">
 		<title></title>
 		<link async defer rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="manifest" href="manifest.json">
 	</head>
 	<body>
 			<div class="_page_wrapper">
@@ -87,6 +88,13 @@
 	<link async defer rel="stylesheet" href="./assets/css/signup.css">
 	<script type="module" async defer src="firebase.js" charset="utf-8"></script>
 <script async defer src="assets/js/signup.js" charset="utf-8"></script>
+<script>
+	if('serviceWorker' in navigator){
+  navigator.serviceWorker.register('/sw.js')
+    .then(reg => console.log('service worker registered'))
+    .catch(err => console.log('service worker not registered', err));
+}
+</script>
 
 
 </html>
