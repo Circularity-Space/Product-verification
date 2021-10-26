@@ -1,74 +1,138 @@
+<!-- BEGIN: Top HTML -->
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-	<head>
-		<meta name="viewport" content="initial-scale=1.0,user-scalable=no,width=device-width">
-		<meta charset="utf-8">
-		<title></title>
-		<link async defer rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	</head>
-	<body>
-			<div class="_page_wrapper">
-				<div class="_mid_strip"></div>
-				<!-- <div class="label">Scan Product</div> -->
+<!-- include aframe -->
+<script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+<!-- include ar.js -->
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 
-				<div class="scan_product">
-				<div id="reader"></div>
-				</div>
-				<!-- <div class="torch_trigger"><img src="./assets/images/torch.png" alt=""></div> -->
-				<div class="bottom_nav">
-					<p class="home"><img src="./assets/images/home.png" alt="home"></p>
-					<p class="scan"><img src="./assets/images/scan.svg" alt="scan"></p>
-					<p class="activate"><img src="./assets/images/virdismartplain.png" alt="activate"></p>
-				</div>
-				<div class="_decor"></div>
-			</div>
-	</body>
-	<link async defer rel="stylesheet" href="./assets/css/home.css">
-	<link async defer rel="stylesheet" href="./assets/css/scan.css">
-	<!-- <script async defer src="./assets/js/scan.js" charset="utf-8"></script> -->
-	<script src="./minified/html5-qrcode.min.js"></script>
-	<script src="./assets/js/shared.js" charset="utf-8"></script>
-	<script type="text/javascript">
-	// This method will trigger user permissions
-Html5Qrcode.getCameras().then(devices => {
-	/*
-		* devices would be an array of objects of type:
-		* { id: "id", label: "label" }
-		*/
-	if (devices && devices.length) {
-			var cameraId = (devices[1]) ? devices[1].id : devices[0].id;
-			console.log( devices[0]);
-			alert(Object.keys(devices));
-			alert(cameraId);
-			// .. use this to start scanning.
+<!-- to load .ply model -->
+<script src="https://rawgit.com/donmccurdy/aframe-extras/v6.0.0/dist/aframe-extras.loaders.min.js"></script>
 
-
-			// Create instance of the object. The only argument is the "id" of HTML element created above.
-const html5QrCode = new Html5Qrcode("reader");
-
-html5QrCode.start(
-  cameraId,     // retreived in the previous step.
-  {
-    fps: 10,    // sets the framerate to 10 frame per second
-    qrbox: 250  // sets only 250 X 250 region of viewfinder to
-                // scannable, rest shaded.
-  },
-  qrCodeMessage => {
-    // do something when code is read. For example:
-    alert(`QR Code detected: ${qrCodeMessage}`);
-  },
-  errorMessage => {
-    // parse error, ideally ignore it. For example:
-    console.log(`QR Code no longer in front of camera.`);
-  })
-.catch(err => {
-  // Start failed, handle it. For example,
-  alert(`Unable to start scanning, error: ${err}`);
+<!-- END: Top HTML -->
+<!-- BEGIN: Unity Compiled Events -->
+<script>
+var markerFound = 0;
+AFRAME.registerComponent('button', {
+init: function () {
+var elem = document.documentElement;
+var marker = document.querySelector("#marker");
+var fullbutton = document.querySelector("#fullscreen");
+var button = document.querySelector("#mutebutton");
+var Video_0 = document.querySelector("#Video_Asset_0");
+marker.addEventListener("markerFound", function (evt) {
+markerFound = 1;
+Video_0.play();
+});
+marker.addEventListener("markerLost", function (evt) {
+markerFound = 0;
+Video_0.pause();
+});
+button.addEventListener("click", function(evt){
+console.log("button clicked")
+if(Video_0.muted==true){
+button.innerHTML="Mute";
+Video_0.muted=false;
+}else{
+button.innerHTML="Unmute";
+Video_0.muted=true;
+}
 });
 
-	}
-}).catch(err => {
-	// handle err
+        fullbutton.addEventListener("click", function (evt) {
+            if (fullscreen == 0) {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+            } else if (elem.mozRequestFullScreen) {
+                    /* Firefox */
+                elem.mozRequestFullScreen();
+            } else if (elem.webkitRequestFullscreen) {
+                    /* Chrome, Safari and Opera */
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) {
+                    /* IE/Edge */
+                elem.msRequestFullscreen();
+            }
+            fullbutton.setAttribute("src", "../exit_fullscreen.png");
+            fullscreen = 1;
+            } else {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                        document.webkitExitFullscreen();
+                } else if (document.mozCancelFullScreen) {
+                        document.mozCancelFullScreen();
+                } else if (document.msExitFullscreen) {
+                        document.msExitFullscreen();
+                }
+                fullbutton.setAttribute("src", "../fullscreen.png");
+                fullscreen = 0;
+            }
+        });
+},
+tick: function (totalTime, deltaTime) {
+var dTime = deltaTime / 1000;
+
+if (markerFound == 1) {
+}
+
+
+        function bezierEvaluate(p0, p1, p2, p3, t) {
+            var u = (1 - t);                
+            var uu = u * u;                
+            var uuu = u * u * u;               
+            var tt = t * t;               
+            var ttt = t * t * t;               
+            //B(t) = (1-t)^3*P0 3*(1-t)^2*t*P1 3*(1-t)*t^2*P2 t^3*P3 , 0 < t < 1               
+            return (uuu * p0 + 3 * uu * t * p1 + 3 * u * tt * p2 + ttt * p3);          
+        }          
+        function bezierPath(p0, p1, p2, p3, t) {               
+            return new THREE.Vector3(                   
+                bezierEvaluate(p0.x, p1.x, p2.x, p3.x, t),                   
+                bezierEvaluate(p0.y, p1.y, p2.y, p3.y, t),                   
+                bezierEvaluate(p0.z, p1.z, p2.z, p3.z, t)               
+            );           
+        }     
+    }
 });
-	</script>
-</html>
+</script>
+<!-- END: Unity Compiled Events -->
+
+<!-- BEGIN: Middle HTML -->
+<body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
+
+        <div style='position: absolute; bottom: 10px; right: 30px; width:100%; text-align: center; z-index: 1;'>      
+            <button id="mutebutton" style='position: absolute; bottom: 10px'>
+                Unmute
+            </button>
+        </div>
+
+        <div style='position: absolute; bottom: 5px; left: 30px; width:100%; text-align: right; z-index: 1;'>
+            <input type="image" id="fullscreen" src="../fullscreen.png" style='position: absolute; bottom: 0px; right: 35px;'>
+            </input>
+        </div>
+
+        <!-- <a-scene embedded arjs='debugUIEnabled: false; sourceType: video; sourceUrl:../../data/videos/headtracking.mp4;'> -->
+            <a-scene embedded arjs='debugUIEnabled: false; sourceType: webcam' vr-mode-ui='enabled: false'>
+            <a-entity id="mouseCursor" cursor="rayOrigin: mouse" raycaster="objects: .intersectable; useWorldCoordinates: true;"></a-entity>
+<!-- END: Middle HTML -->
+
+<!-- BEGIN: Unity Compiled Assets -->
+<a-assets>
+<video id="Video_Asset_0" autoplay="false" loop crossorigin="anonymous" src="videos/5 simple steps to buy online at Nawiri Plant Online Grocery in Nairobi, Kenya.mp4" webkit-playsinline playsinline controls muted></video>
+</a-assets>
+<!-- END: Unity Compiled Assets -->
+<!-- BEGIN: Add Image Target (marker) -->
+<a-marker id="marker" preset="hiro" emitevents="true" button>
+<!-- END: Add Image Target (marker) -->
+
+<!-- BEGIN: Unity Compiled Objects -->
+<a-video width="1" height="1" src="#Video_Asset_0" class="intersectable" position="0 0.2 0" rotation="270 0 0" color="#FFFFFF" 
+></a-video>
+<!-- END: Unity Compiled Objects -->
+
+<!-- BEGIN: Bottom HTML -->
+</a-marker>
+<a-entity camera></a-entity>
+</a-scene>
+</body>
+</html><!-- END: Bottom HTML -->
