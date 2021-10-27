@@ -3,7 +3,7 @@
     "background_color": "#1b1035",
     "display": "standalone",
     "scope": "/",
-    "start_url": "/signup.html",
+    "start_url": "/index.html",
     "name": "Thibitisha",
     "short_name": "Thibitisha",
     "description": "Verify food authenticity with just a simple scan and get a visual of its origin",
