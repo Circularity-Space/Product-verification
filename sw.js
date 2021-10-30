@@ -2,7 +2,11 @@ const staticCacheName = 'site-static-v4';
 const dynamicCacheName = 'site-dynamic-v4';
 const assets = [
   '/',
-  '/signup.html'
+  '/index.html',
+  '/home.html',
+  '/scan.html',
+  '/activate.html',
+  '/login.html'
 ];
 
 // cache size limit function
